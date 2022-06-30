@@ -47,12 +47,12 @@ const INFURA_PROJECT_ID = process.env.REACT_APP_INFURA_PROJECT_ID;
 
 export const createNetworkHttpUrl = (network: string): string => {
   const custom = process.env[`REACT_APP_${network.toUpperCase()}_JSONRPC`];
-  return custom || `https://${network}.infura.io/v3/${INFURA_PROJECT_ID}`;
+  return custom || `https://eth-${network}.alchemyapi.io/v2/${INFURA_PROJECT_ID}`;
 };
 
 export const createNetworkWsUrl = (network: string): string => {
   const custom = process.env[`REACT_APP_${network.toUpperCase()}_WSRPC`];
-  return custom || `wss://${network}.infura.io/ws/v3/${INFURA_PROJECT_ID}`;
+  return custom || `wss://eth-${network}.alchemyapi.io/v2/${INFURA_PROJECT_ID}`;
 };
 
 const app: Record<SupportedChains, AppConfig> = {
@@ -92,7 +92,7 @@ const getAddresses = (): ContractAddresses => {
   let nounsAddresses = {} as NounsContractAddresses;
   try {
     nounsAddresses = getContractAddressesForChainOrThrow(CHAIN_ID);
-  } catch {}
+  } catch { }
   return { ...nounsAddresses, ...externalAddresses[CHAIN_ID] };
 };
 
