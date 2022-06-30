@@ -35,26 +35,6 @@ task('update-configs', 'Write the deployed addresses to the SDK and subgraph con
         console.log('Failed to re-build `@nouns/sdk`. Please rebuild manually.');
       }
       console.log('Addresses written to the Nouns SDK.');
-      // Generate subgraph config
-      const configName = `${network}-fork`;
-      const subgraphConfigPath = join(__dirname, `../../nouns-subgraph/config/${configName}.json`);
-      const subgraphConfig = {
-        network,
-        nounsToken: {
-          address: contracts.NounsToken.address,
-          startBlock: contracts.NounsToken.instance.deployTransaction.blockNumber,
-        },
-        nounsAuctionHouse: {
-          address: contracts.NounsAuctionHouseProxy.address,
-          startBlock: contracts.NounsAuctionHouseProxy.instance.deployTransaction.blockNumber,
-        },
-        nounsDAO: {
-          address: contracts.NounsDAOProxy.address,
-          startBlock: contracts.NounsDAOProxy.instance.deployTransaction.blockNumber,
-        },
-      };
-      writeFileSync(subgraphConfigPath, JSON.stringify(subgraphConfig, null, 2));
-      console.log('Subgraph config has been generated.');
 
     },
   );

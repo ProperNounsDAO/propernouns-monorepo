@@ -64,7 +64,7 @@ task('deploy-and-configure', 'Deploy and configure all contracts')
       );
     }
 
-    // Optionally write the deployed addresses to the SDK and subgraph configs.
+    // Optionally write the deployed addresses to the SDK
     if (args.updateConfigs) {
       await run('update-configs', {
         contracts,

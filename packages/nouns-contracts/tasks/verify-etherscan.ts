@@ -38,5 +38,6 @@ task('verify-etherscan', 'Verify the Solidity contracts on Etherscan')
         }
         console.error(message);
       }
+      console.log('verified!');
     }
   });
