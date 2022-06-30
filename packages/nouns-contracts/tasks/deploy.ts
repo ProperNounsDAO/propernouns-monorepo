@@ -47,7 +47,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'auctionDuration',
     'The auction duration (seconds)',
-    60 * 60 * 24 /* 24 hours */,
+    60 * 60 * 1 /* 24 hours */,
     types.int,
   )
   .addOptionalParam(
@@ -117,7 +117,9 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
       DeployedContract
     >;
     const contracts: Record<ContractName, ContractDeployment> = {
-      NFTDescriptor: {},
+      NFTDescriptor: {
+        waitForConfirmation: true,
+      },
       NounsDescriptor: {
         libraries: () => ({
           NFTDescriptor: deployment.NFTDescriptor.address,
@@ -195,7 +197,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
 
     for (const [name, contract] of Object.entries(contracts)) {
       let gasPrice = await ethers.provider.getGasPrice();
-      if (!args.autoDeploy) {
+      if (true) {
         const gasInGwei = Math.round(Number(ethers.utils.formatUnits(gasPrice, 'gwei')));
 
         promptjs.start();

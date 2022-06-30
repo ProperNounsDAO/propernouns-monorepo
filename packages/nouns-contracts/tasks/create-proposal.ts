@@ -5,7 +5,7 @@ task('create-proposal', 'Create a governance proposal')
   .addOptionalParam(
     'nounsDaoProxy',
     'The `NounsDAOProxy` contract address',
-    '0x610178dA211FEF7D417bC0e6FeD39F05609AD788',
+    '',
     types.string,
   )
   .setAction(async ({ nounsDaoProxy }, { ethers }) => {
