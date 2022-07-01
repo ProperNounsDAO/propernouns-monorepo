@@ -47,7 +47,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'auctionDuration',
     'The auction duration (seconds)',
-    60 * 60 * 1 /* 24 hours */,
+    60 * 60 * 1 /* 1 hours */,
     types.int,
   )
   .addOptionalParam(
