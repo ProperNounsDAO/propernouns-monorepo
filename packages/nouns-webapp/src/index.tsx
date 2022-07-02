@@ -43,6 +43,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { nounPath } from './utils/history';
 import { push } from 'connected-react-router';
 import { LanguageProvider } from './i18n/LanguageProvider';
+import { sharedResponseHeaders } from './functions/utils';
 
 dotenv.config();
 

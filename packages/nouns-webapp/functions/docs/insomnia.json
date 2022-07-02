@@ -15,7 +15,11 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [],
+      "headers": [
+        {
+          "Access-Control-Allow-Origin": "*"
+        }
+      ],
       "authentication": {},
       "metaSortKey": -1632713524015,
       "isPrivate": false,
@@ -48,7 +52,11 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [],
+      "headers": [
+        {
+          "Access-Control-Allow-Origin": "*"
+        }
+      ],
       "authentication": {},
       "metaSortKey": -1632713504781,
       "isPrivate": false,
@@ -71,7 +79,11 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [],
+      "headers": [
+        {
+          "Access-Control-Allow-Origin": "*"
+        }
+      ],
       "authentication": {},
       "metaSortKey": -1632713485547,
       "isPrivate": false,
@@ -101,7 +113,8 @@
         {
           "name": "Content-Type",
           "value": "application/json",
-          "id": "pair_492d1e53d8d74a2786bc97371a7cc901"
+          "id": "pair_492d1e53d8d74a2786bc97371a7cc901",
+          "Access-Control-Allow-Origin": "*"
         }
       ],
       "authentication": {},
@@ -133,7 +146,8 @@
         {
           "name": "Content-Type",
           "value": "application/json",
-          "id": "pair_492d1e53d8d74a2786bc97371a7cc901"
+          "id": "pair_492d1e53d8d74a2786bc97371a7cc901",
+          "Access-Control-Allow-Origin": "*"
         }
       ],
       "authentication": {},
@@ -156,13 +170,17 @@
       "name": "Is Noun Owner",
       "description": "",
       "method": "POST",
-      "body": { "mimeType": "text/plain", "text": "0x2536c09e5f5691498805884fa37811be3b2bddb4" },
+      "body": {
+        "mimeType": "text/plain",
+        "text": "0x2536c09e5f5691498805884fa37811be3b2bddb4"
+      },
       "parameters": [],
       "headers": [
         {
           "name": "Content-Type",
           "value": "text/plain",
-          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254"
+          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254",
+          "Access-Control-Allow-Origin": "*"
         }
       ],
       "authentication": {},
@@ -185,13 +203,17 @@
       "name": "Is Noun Delegate",
       "description": "",
       "method": "POST",
-      "body": { "mimeType": "text/plain", "text": "0x75ee6eb3d8dacf41ee2e5307090b197d3e1cca6e" },
+      "body": {
+        "mimeType": "text/plain",
+        "text": "0x75ee6eb3d8dacf41ee2e5307090b197d3e1cca6e"
+      },
       "parameters": [],
       "headers": [
         {
           "name": "Content-Type",
           "value": "text/plain",
-          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254"
+          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254",
+          "Access-Control-Allow-Origin": "*"
         }
       ],
       "authentication": {},
@@ -211,8 +233,14 @@
       "modified": 1632713433876,
       "created": 1632713355846,
       "name": "Base Environment",
-      "data": { "host": "https://deploy-preview-222--nouns-home.netlify.app/.netlify/functions" },
-      "dataPropertyOrder": { "&": ["host"] },
+      "data": {
+        "host": "https://deploy-preview-222--nouns-home.netlify.app/.netlify/functions"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "host"
+        ]
+      },
       "color": null,
       "isPrivate": false,
       "metaSortKey": 1632713355846,
