@@ -36,8 +36,8 @@ export async function resolveEnsOrFormatAddress(address: string) {
 export function formatAuctionStartedTweetText(auctionId: number) {
   return `＊Bleep Bloop Blop＊
         
- An auction has started for Noun #${auctionId}
- Learn more at https://nouns.wtf`;
+ An auction has started for Proper Noun #${auctionId}
+ Learn more at https://propernouns.xyz`;
 }
 
 /**
@@ -48,7 +48,7 @@ export function formatAuctionStartedTweetText(auctionId: number) {
  */
 export async function formatBidMessageText(id: number, bid: Bid) {
   const bidder = await resolveEnsOrFormatAddress(bid.bidder.id);
-  return `Noun ${id} has received a bid of Ξ${ethers.utils.formatEther(bid.amount)} from ${bidder}`;
+  return `Proper Noun ${id} has received a bid of Ξ${ethers.utils.formatEther(bid.amount)} from ${bidder}`;
 }
 
 /**
@@ -56,23 +56,23 @@ export async function formatBidMessageText(id: number, bid: Bid) {
  * @returns The auction ending soon text
  */
 export function getAuctionEndingSoonTweetText() {
-  return `This auction is ending soon! Bid now at https://nouns.wtf`;
+  return `This auction is ending soon! Bid now at https://propernouns.xyz`;
 }
 
 export function formatNewGovernanceProposalText(proposal: Proposal) {
-  return `A new NounsDAO proposal (#${proposal.id}) has been created: ${extractProposalTitle(
+  return `A new ProperNounsDAO proposal (#${proposal.id}) has been created: ${extractProposalTitle(
     proposal,
   )}`;
 }
 
 export function formatUpdatedGovernanceProposalStatusText(proposal: Proposal) {
-  return `Nouns DAO proposal #${proposal.id} (${extractProposalTitle(
+  return `Proper Nouns DAO proposal #${proposal.id} (${extractProposalTitle(
     proposal,
   )}) has changed to status: ${proposal.status.toLocaleLowerCase()}`;
 }
 
 export function formatProposalAtRiskOfExpiryText(proposal: Proposal) {
-  return `Nouns DAO proposal #${proposal.id} (${extractProposalTitle(
+  return `Proper Nouns DAO proposal #${proposal.id} (${extractProposalTitle(
     proposal,
   )}) expires in less than two days. Please execute it immediately!`;
 }
@@ -80,9 +80,8 @@ export function formatProposalAtRiskOfExpiryText(proposal: Proposal) {
 export async function formatNewGovernanceVoteText(proposal: Proposal, vote: Vote) {
   return `${await resolveEnsOrFormatAddress(vote.voter.id)} has voted ${voteDirectionToText(
     vote.supportDetailed,
-  )} Proposal #${proposal.id} (${extractProposalTitle(proposal)})${
-    vote.reason ? `\n\nReason: ${vote.reason}` : ''
-  }`;
+  )} Proposal #${proposal.id} (${extractProposalTitle(proposal)})${vote.reason ? `\n\nReason: ${vote.reason}` : ''
+    }`;
 }
 
 /**

@@ -1,12 +1,12 @@
 openapi: "3.0.3"
 info:
   description: |
-    The Nouns serverless API can provide projected data that may be easier to use for non-blockchain-native clients.
+    The Proper Nouns serverless API can provide projected data that may be easier to use for non-blockchain-native clients.
 
     ## Function Versioning
     `v0-` prefixed functions are in development and may change before becoming finalized.
   version: "0.1.0"
-  title: "Nouns Serverless API"
+  title: "Proper Nouns Serverless API"
   license:
     name: "CC0"
 tags:
@@ -19,7 +19,7 @@ tags:
 - name: "Cryptography"
   description: "Functions for verifying identity"
 servers:
-  - url: "https://nouns.wtf/.netlify/functions/"
+  - url: "https://propernouns.xyz/.netlify/functions/"
     description: Production Deployment
 paths:
   /v0-is-noun-owner:

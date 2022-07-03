@@ -99,12 +99,12 @@ const Documentation = () => {
                 </li>
                 <li>
                   <Trans>
-                    ProNounders receive rewards in the form of Proper Nouns (9% of supply for first 5 years).
+                    Prop'Nounders receive rewards in the form of Proper Nouns (9% of supply for first 5 years).
                   </Trans>
                 </li>
                 <li>
                   <Trans>
-                    GrandNounders receive rewards in the form of Proper Nouns (1% of supply for first 5 years).
+                    Grand'Nounders receive rewards in the form of Proper Nouns (1% of supply for first 5 years).
                   </Trans>
                 </li>
               </ul>
@@ -162,7 +162,7 @@ const Documentation = () => {
             <Accordion.Body>
               <p>
                 <Trans>
-                  In addition to the precautions taken by Compound Governance, ProNounders have given
+                  In addition to the precautions taken by Compound Governance, Prop'Nounders have given
                   themselves a special veto right to ensure that no malicious proposals can be
                   passed while the Proper Noun supply is low. This veto right will only be used if an
                   obviously harmful governance proposal has been passed, and is intended as a last
@@ -171,7 +171,7 @@ const Documentation = () => {
               </p>
               <p>
                 <Trans>
-                  ProNounders will proveably revoke this veto right when they deem it safe to do so.
+                  Prop'Nounders will proveably revoke this veto right when they deem it safe to do so.
                   This decision will be based on a healthy Proper Noun distribution and a community that is
                   engaged in the governance process.
                 </Trans>
@@ -204,7 +204,7 @@ const Documentation = () => {
                   <Trans>heads (234) </Trans>
                 </li>
                 <li>
-                  <Trans>monocles (21)</Trans>
+                  <Trans>monocles (80)</Trans>
                 </li>
               </ul>
               <Trans>
@@ -264,13 +264,13 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="7" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>ProNounder's Reward</Trans>
+              <Trans>Prop'Nounder's Reward</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <p>
                 <Trans>
-                  'ProNounders' are the three builders that initiated the Proper Nouns. Here are the
-                  ProNounders:
+                  "Prop'Nounders" are the three builders that initiated the Proper Nouns. Here are the
+                  Prop'Nounders:
                 </Trans>
               </p>
               <ul>
@@ -284,7 +284,7 @@ const Documentation = () => {
               </ul>
               <p>
                 <Trans>
-                  'GrandNounders' are the group of ten builders that initiated the original Nouns. Here are the
+                  "Grand'Nounders" are the group of ten builders that initiated the original Nouns. Here are the
                   GrandNounders:
                 </Trans>
               </p>
@@ -332,22 +332,22 @@ const Documentation = () => {
               </ul>
               <p>
                 <Trans>
-                  Because 100% of Proper Noun auction proceeds are sent to Proper Nouns DAO, ProNounders have chosen
-                  to compensate themselves with Proper Nouns. Every 10th Noun for the first 5 years of the
+                  Because 100% of Proper Noun auction proceeds are sent to Proper Nouns DAO, Prop'Nounders have chosen
+                  to compensate themselves with Proper Nouns. Every 10th Proper Noun for the first 5 years of the
                   project (Proper Noun ids #0, #10, #20, #30 and so on) will be automatically sent to the
-                  ProNounder's multisig to be vested and shared among the founding members of the
+                  Prop'Nounder's multisig to be vested and shared among the founding members of the
                   project.
                 </Trans>
               </p>
               <p>
                 <Trans>
                   However, because this project was inspired by and utilizes the framework created and made available by
-                  the .
+                  the {nounsLink}, every 100th Proper Noun will instead be minted into the multisig of the original Nouns DAO (the Grand'Nounders).
                 </Trans>
               </p>
               <p>
                 <Trans>
-                  Pro- and GrandNounder distributions don't interfere with the cadence of hourly auctions. Proper Nouns
+                  Prop' and Grand'Nounder distributions don't interfere with the cadence of hourly auctions. Proper Nouns
                   are sent directly to the specified Multisig, and auctions continue on schedule
                   with the next available Proper Noun ID.
                 </Trans>
