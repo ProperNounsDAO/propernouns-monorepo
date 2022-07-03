@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.1.0",
   "description": "nouns backend api",
-  "author": "Nounders",
-  "homepage": "https://nouns.wtf",
+  "author": "Prop'Nounders",
+  "homepage": "https://propernouns.xyz",
   "license": "GPL-3.0",
   "main": "src/index.ts",
   "directories": {
