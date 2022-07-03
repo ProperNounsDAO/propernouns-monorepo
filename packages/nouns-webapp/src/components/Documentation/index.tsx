@@ -6,6 +6,7 @@ import Link from '../Link';
 import { Trans } from '@lingui/macro';
 
 const Documentation = () => {
+
   const nounsLink = (
     <Link
       text={<Trans>Nouns DAO</Trans>}
