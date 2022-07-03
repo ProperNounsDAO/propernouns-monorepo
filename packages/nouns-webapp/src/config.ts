@@ -59,7 +59,7 @@ const app: Record<SupportedChains, AppConfig> = {
   [ChainId.Rinkeby]: {
     jsonRpcUri: createNetworkHttpUrl('rinkeby'),
     wsRpcUri: createNetworkWsUrl('rinkeby'),
-    subgraphApiUri: 'https://thegraph.com/studio/subgraph/proper-nouns-subgraph/',
+    subgraphApiUri: 'https://api.studio.thegraph.com/query/30189/proper-nouns-subgraph/v0.0.6',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Mainnet]: {
