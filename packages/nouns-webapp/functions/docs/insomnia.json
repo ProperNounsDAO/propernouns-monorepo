@@ -15,11 +15,7 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [
-        {
-          "Access-Control-Allow-Origin": "*"
-        }
-      ],
+      "headers": [],
       "authentication": {},
       "metaSortKey": -1632713524015,
       "isPrivate": false,
@@ -52,11 +48,7 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [
-        {
-          "Access-Control-Allow-Origin": "*"
-        }
-      ],
+      "headers": [],
       "authentication": {},
       "metaSortKey": -1632713504781,
       "isPrivate": false,
@@ -79,11 +71,7 @@
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [
-        {
-          "Access-Control-Allow-Origin": "*"
-        }
-      ],
+      "headers": [],
       "authentication": {},
       "metaSortKey": -1632713485547,
       "isPrivate": false,
@@ -113,8 +101,7 @@
         {
           "name": "Content-Type",
           "value": "application/json",
-          "id": "pair_492d1e53d8d74a2786bc97371a7cc901",
-          "Access-Control-Allow-Origin": "*"
+          "id": "pair_492d1e53d8d74a2786bc97371a7cc901"
         }
       ],
       "authentication": {},
@@ -146,8 +133,7 @@
         {
           "name": "Content-Type",
           "value": "application/json",
-          "id": "pair_492d1e53d8d74a2786bc97371a7cc901",
-          "Access-Control-Allow-Origin": "*"
+          "id": "pair_492d1e53d8d74a2786bc97371a7cc901"
         }
       ],
       "authentication": {},
@@ -179,8 +165,7 @@
         {
           "name": "Content-Type",
           "value": "text/plain",
-          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254",
-          "Access-Control-Allow-Origin": "*"
+          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254"
         }
       ],
       "authentication": {},
@@ -212,8 +197,7 @@
         {
           "name": "Content-Type",
           "value": "text/plain",
-          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254",
-          "Access-Control-Allow-Origin": "*"
+          "id": "pair_7bfb3c02c3dc4f4396b47ef9b5d8c254"
         }
       ],
       "authentication": {},
