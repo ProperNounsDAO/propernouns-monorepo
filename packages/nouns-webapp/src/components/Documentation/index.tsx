@@ -42,7 +42,7 @@ const Documentation = () => {
       <Col lg={{ span: 10, offset: 1 }}>
         <div className={classes.headerWrapper}>
           <h1>
-            <Trans>Pardon?</Trans>
+            <Trans>Que?</Trans>
           </h1>
           <p className={classes.aboutText}>
             <Trans>
