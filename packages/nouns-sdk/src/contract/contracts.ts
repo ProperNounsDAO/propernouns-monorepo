@@ -36,8 +36,8 @@ export const getContractsForChainOrThrow = (
       addresses.nounsDescriptor,
       signerOrProvider as Signer | Provider,
     ),
-    NounstersSeederContract: NounstersSeederFactory.connect(
-      addresses.NounstersSeeder,
+    nounstersSeederContract: NounstersSeederFactory.connect(
+      addresses.nounstersSeeder,
       signerOrProvider as Signer | Provider,
     ),
     nounsDaoContract: NounsDaoLogicV1Factory.connect(

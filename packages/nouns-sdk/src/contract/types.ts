@@ -8,7 +8,7 @@ import {
 
 export interface ContractAddresses {
   nounsToken: string;
-  NounstersSeeder: string;
+  nounstersSeeder: string;
   nounsDescriptor: string;
   nftDescriptor: string;
   nounsAuctionHouse: string;
@@ -23,7 +23,7 @@ export interface Contracts {
   nounsTokenContract: ReturnType<typeof NounsTokenFactory.connect>;
   nounsAuctionHouseContract: ReturnType<typeof NounsAuctionHouseFactory.connect>;
   nounsDescriptorContract: ReturnType<typeof NounsDescriptorFactory.connect>;
-  NounstersSeederContract: ReturnType<typeof NounstersSeederFactory.connect>;
+  nounstersSeederContract: ReturnType<typeof NounstersSeederFactory.connect>;
   nounsDaoContract: ReturnType<typeof NounsDaoLogicV1Factory.connect>;
 }
 
