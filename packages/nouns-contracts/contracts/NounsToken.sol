@@ -20,7 +20,7 @@ pragma solidity ^0.8.6;
 import { Ownable } from '@openzeppelin/contracts/access/Ownable.sol';
 import { ERC721Checkpointable } from './base/ERC721Checkpointable.sol';
 import { INounsDescriptor } from './interfaces/INounsDescriptor.sol';
-import { INounsSeeder } from './interfaces/INounsSeeder.sol';
+import { INounstersSeeder } from './interfaces/INounstersSeeder.sol';
 import { INounsToken } from './interfaces/INounsToken.sol';
 import { ERC721 } from './base/ERC721.sol';
 import { IERC721 } from '@openzeppelin/contracts/token/ERC721/IERC721.sol';
@@ -37,7 +37,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
     INounsDescriptor public descriptor;
 
     // The Nouns token seeder
-    INounsSeeder public seeder;
+    INounstersSeeder public seeder;
 
     // Whether the minter can be updated
     bool public isMinterLocked;
@@ -49,7 +49,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
     bool public isSeederLocked;
 
     // The noun seeds
-    mapping(uint256 => INounsSeeder.Seed) public seeds;
+    mapping(uint256 => INounstersSeeder.Seed) public seeds;
 
     // The internal noun ID tracker
     uint256 private _currentNounId;
@@ -104,7 +104,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
         address _noundersDAO,
         address _minter,
         INounsDescriptor _descriptor,
-        INounsSeeder _seeder,
+        INounstersSeeder _seeder,
         IProxyRegistry _proxyRegistry
     ) ERC721('Nouns', 'NOUN') {
         noundersDAO = _noundersDAO;
@@ -233,7 +233,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
      * @notice Set the token seeder.
      * @dev Only callable by the owner when not locked.
      */
-    function setSeeder(INounsSeeder _seeder) external override onlyOwner whenSeederNotLocked {
+    function setSeeder(INounstersSeeder _seeder) external override onlyOwner whenSeederNotLocked {
         seeder = _seeder;
 
         emit SeederUpdated(_seeder);
@@ -253,7 +253,7 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
      * @notice Mint a Noun with `nounId` to the provided `to` address.
      */
     function _mintTo(address to, uint256 nounId) internal returns (uint256) {
-        INounsSeeder.Seed memory seed = seeds[nounId] = seeder.generateSeed(nounId, descriptor);
+        INounstersSeeder.Seed memory seed = seeds[nounId] = seeder.generateSeed(nounId, descriptor);
 
         _mint(owner(), to, nounId);
         emit NounCreated(nounId, seed);

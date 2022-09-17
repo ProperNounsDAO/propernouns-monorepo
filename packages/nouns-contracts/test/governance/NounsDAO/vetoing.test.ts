@@ -63,7 +63,7 @@ async function reset(): Promise<void> {
   // nonce 1: Deploy NounsDAOLogicV1
   // nonce 2: Deploy nftDescriptorLibraryFactory
   // nonce 3: Deploy NounsDescriptor
-  // nonce 4: Deploy NounsSeeder
+  // nonce 4: Deploy NounstersSeeder
   // nonce 5: Deploy NounsToken
   // nonce 6: Deploy NounsDAOProxy
   // nonce 7+: populate Descriptor

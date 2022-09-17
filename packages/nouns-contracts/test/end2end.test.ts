@@ -76,7 +76,7 @@ async function deploy() {
   // nonce 2: Deploy AuctionHouse
   // nonce 3: Deploy nftDescriptorLibraryFactory
   // nonce 4: Deploy NounsDescriptor
-  // nonce 5: Deploy NounsSeeder
+  // nonce 5: Deploy NounstersSeeder
   // nonce 6: Deploy NounsToken
   // nonce 0: Deploy NounsDAOExecutor
   // nonce 1: Deploy NounsDAOLogicV1

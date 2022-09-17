@@ -2,13 +2,13 @@ import {
   NounsTokenFactory,
   NounsAuctionHouseFactory,
   NounsDescriptorFactory,
-  NounsSeederFactory,
+  NounstersSeederFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';
 
 export interface ContractAddresses {
   nounsToken: string;
-  nounsSeeder: string;
+  NounstersSeeder: string;
   nounsDescriptor: string;
   nftDescriptor: string;
   nounsAuctionHouse: string;
@@ -23,7 +23,7 @@ export interface Contracts {
   nounsTokenContract: ReturnType<typeof NounsTokenFactory.connect>;
   nounsAuctionHouseContract: ReturnType<typeof NounsAuctionHouseFactory.connect>;
   nounsDescriptorContract: ReturnType<typeof NounsDescriptorFactory.connect>;
-  nounsSeederContract: ReturnType<typeof NounsSeederFactory.connect>;
+  NounstersSeederContract: ReturnType<typeof NounstersSeederFactory.connect>;
   nounsDaoContract: ReturnType<typeof NounsDaoLogicV1Factory.connect>;
 }
 
@@ -32,5 +32,6 @@ export enum ChainId {
   Ropsten = 3,
   Rinkeby = 4,
   Kovan = 42,
+  Goerli = 420,
   Local = 31337,
 }

@@ -4,11 +4,12 @@ export enum ChainId {
   Mainnet = 1,
   Ropsten = 3,
   Rinkeby = 4,
+  Goerli = 420,
   Kovan = 42,
 }
 
 // prettier-ignore
-export type ContractName = 'NFTDescriptor' | 'NounsDescriptor' | 'NounsSeeder' | 'NounsToken' | 'NounsAuctionHouse' | 'NounsAuctionHouseProxyAdmin' | 'NounsAuctionHouseProxy' | 'NounsDAOExecutor' | 'NounsDAOLogicV1' | 'NounsDAOProxy';
+export type ContractName = 'NFTDescriptor' | 'NounsDescriptor' | 'NounstersSeeder' | 'NounsToken' | 'NounsAuctionHouse' | 'NounsAuctionHouseProxyAdmin' | 'NounsAuctionHouseProxy' | 'NounsDAOExecutor' | 'NounsDAOLogicV1' | 'NounsDAOProxy';
 
 export interface ContractDeployment {
   args?: (string | number | (() => string))[];

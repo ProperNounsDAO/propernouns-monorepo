@@ -42,7 +42,7 @@
             "type": "uint48"
           }
         ],
-        "internalType": "struct INounsSeeder.Seed",
+        "internalType": "struct INounstersSeeder.Seed",
         "name": "",
         "type": "tuple"
       }

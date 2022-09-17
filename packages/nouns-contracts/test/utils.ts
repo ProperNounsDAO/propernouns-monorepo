@@ -5,8 +5,8 @@ import {
   NounsDescriptor__factory as NounsDescriptorFactory,
   NounsToken,
   NounsToken__factory as NounsTokenFactory,
-  NounsSeeder,
-  NounsSeeder__factory as NounsSeederFactory,
+  NounstersSeeder,
+  NounstersSeeder__factory as NounstersSeederFactory,
   WETH,
   WETH__factory as WethFactory,
 } from '../typechain';
@@ -47,8 +47,8 @@ export const deployNounsDescriptor = async (
   return nounsDescriptorFactory.deploy();
 };
 
-export const deployNounsSeeder = async (deployer?: SignerWithAddress): Promise<NounsSeeder> => {
-  const factory = new NounsSeederFactory(deployer || (await getSigners()).deployer);
+export const deployNounstersSeeder = async (deployer?: SignerWithAddress): Promise<NounstersSeeder> => {
+  const factory = new NounstersSeederFactory(deployer || (await getSigners()).deployer);
 
   return factory.deploy();
 };
@@ -68,7 +68,7 @@ export const deployNounsToken = async (
     noundersDAO || signer.address,
     minter || signer.address,
     descriptor || (await deployNounsDescriptor(signer)).address,
-    seeder || (await deployNounsSeeder(signer)).address,
+    seeder || (await deployNounstersSeeder(signer)).address,
     proxyRegistryAddress || address(0),
   );
 };

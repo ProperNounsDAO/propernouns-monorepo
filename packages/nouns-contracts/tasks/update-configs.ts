@@ -16,7 +16,7 @@ task('update-configs', 'Write the deployed addresses to the SDK and subgraph con
       const addresses = JSON.parse(readFileSync(addressesPath, 'utf8'));
       addresses[chainId] = {
         nounsToken: contracts.NounsToken.address,
-        nounsSeeder: contracts.NounsSeeder.address,
+        NounstersSeeder: contracts.NounstersSeeder.address,
         nounsDescriptor: contracts.NounsDescriptor.address,
         nftDescriptor: contracts.NFTDescriptor.address,
         nounsAuctionHouse: contracts.NounsAuctionHouse.address,

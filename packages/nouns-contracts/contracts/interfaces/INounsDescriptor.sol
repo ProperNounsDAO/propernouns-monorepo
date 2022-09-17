@@ -17,7 +17,7 @@
 
 pragma solidity ^0.8.6;
 
-import { INounsSeeder } from './INounsSeeder.sol';
+import { INounstersSeeder } from './INounstersSeeder.sol';
 
 interface INounsDescriptor {
     event PartsLocked();
@@ -84,15 +84,15 @@ interface INounsDescriptor {
 
     function setBaseURI(string calldata baseURI) external;
 
-    function tokenURI(uint256 tokenId, INounsSeeder.Seed memory seed) external view returns (string memory);
+    function tokenURI(uint256 tokenId, INounstersSeeder.Seed memory seed) external view returns (string memory);
 
-    function dataURI(uint256 tokenId, INounsSeeder.Seed memory seed) external view returns (string memory);
+    function dataURI(uint256 tokenId, INounstersSeeder.Seed memory seed) external view returns (string memory);
 
     function genericDataURI(
         string calldata name,
         string calldata description,
-        INounsSeeder.Seed memory seed
+        INounstersSeeder.Seed memory seed
     ) external view returns (string memory);
 
-    function generateSVGImage(INounsSeeder.Seed memory seed) external view returns (string memory);
+    function generateSVGImage(INounstersSeeder.Seed memory seed) external view returns (string memory);
 }

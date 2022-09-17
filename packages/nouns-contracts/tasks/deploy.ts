@@ -17,12 +17,13 @@ const wethContracts: Record<number, string> = {
   [ChainId.Ropsten]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Rinkeby]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Kovan]: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
+  [ChainId.Goerli]: '0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6',
 };
 
 const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 6;
 const GOVERNOR_N_DELEGATOR_NONCE_OFFSET = 9;
 
-task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsToken')
+task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounstersSeeder, and NounsToken')
   .addFlag('autoDeploy', 'Deploy all contracts without user interaction')
   .addOptionalParam('weth', 'The WETH contract address', undefined, types.string)
   .addOptionalParam('noundersdao', 'The nounders DAO contract address', undefined, types.string)
@@ -125,13 +126,13 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
           NFTDescriptor: deployment.NFTDescriptor.address,
         }),
       },
-      NounsSeeder: {},
+      NounstersSeeder: {},
       NounsToken: {
         args: [
           args.noundersdao,
           expectedAuctionHouseProxyAddress,
           () => deployment.NounsDescriptor.address,
-          () => deployment.NounsSeeder.address,
+          () => deployment.NounstersSeeder.address,
           proxyRegistryAddress,
         ],
       },

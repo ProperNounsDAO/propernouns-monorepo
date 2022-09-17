@@ -17,7 +17,7 @@
         "type": "address"
       },
       {
-        "internalType": "contract INounsSeeder",
+        "internalType": "contract INounstersSeeder",
         "name": "_seeder",
         "type": "address"
       },
@@ -219,7 +219,7 @@
           }
         ],
         "indexed": false,
-        "internalType": "struct INounsSeeder.Seed",
+        "internalType": "struct INounstersSeeder.Seed",
         "name": "seed",
         "type": "tuple"
       }
@@ -270,7 +270,7 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "contract INounsSeeder",
+        "internalType": "contract INounstersSeeder",
         "name": "seeder",
         "type": "address"
       }
@@ -880,7 +880,7 @@
     "name": "seeder",
     "outputs": [
       {
-        "internalType": "contract INounsSeeder",
+        "internalType": "contract INounstersSeeder",
         "name": "",
         "type": "address"
       }
@@ -1000,7 +1000,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract INounsSeeder",
+        "internalType": "contract INounstersSeeder",
         "name": "_seeder",
         "type": "address"
       }

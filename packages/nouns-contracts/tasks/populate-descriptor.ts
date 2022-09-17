@@ -15,16 +15,26 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
     '0x1F952ad1Ba8d94F897F0585cDe846c5306B87fE9',
     types.string,
   )
-  .setAction(async ({ nftDescriptor, nounsDescriptor }, { ethers }) => {
+  .addOptionalParam(
+    'nounstersSeeder',
+    'The `NounstersSeeder` contract address',
+    '0x1F952ad1Ba8d94F897F0585cDe846c5306B87fE9',
+    types.string,
+  )
+  .setAction(async ({ nftDescriptor, nounsDescriptor, nounstersSeeder }, { ethers }) => {
     const descriptorFactory = await ethers.getContractFactory('NounsDescriptor', {
       libraries: {
         NFTDescriptor: nftDescriptor,
       },
     });
+    const seederFactory = await ethers.getContractFactory('NounstersSeeder');
+    const seederContract = seederFactory.attach(nounstersSeeder);
     const descriptorContract = descriptorFactory.attach(nounsDescriptor);
 
-    const { bgcolors, palette, images } = ImageData;
+    const { monstertypes, bgcolors, palette, images } = ImageData;
     const { bodies, accessories, heads, glasses } = images;
+
+    await seederContract.populateMonsterTypes(monstertypes);
 
     // Chunk head and accessory population due to high gas usage
     await descriptorContract.addManyBackgrounds(bgcolors);

@@ -51,7 +51,7 @@ export const shiftRightAndCast = (
 };
 
 /**
- * Emulates the NounsSeeder.sol methodology for pseudorandomly selecting a part
+ * Emulates the NounstersSeeder.sol methodology for pseudorandomly selecting a part
  * @param pseudorandomness Hex representation of a number
  * @param partCount The number of parts to pseudorandomly choose from
  * @param shiftAmount The amount to right shift
@@ -68,7 +68,7 @@ export const getPseudorandomPart = (
 };
 
 /**
- * Emulates the NounsSeeder.sol methodology for generating a Noun seed
+ * Emulates the NounstersSeeder.sol methodology for generating a Noun seed
  * @param nounId The Noun tokenId used to create pseudorandomness
  * @param blockHash The block hash use to create pseudorandomness
  */

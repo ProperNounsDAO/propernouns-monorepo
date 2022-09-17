@@ -59,13 +59,13 @@ task('deploy-local', 'Deploy contracts to hardhat')
           NFTDescriptor: contracts.NFTDescriptor.instance?.address as string,
         }),
       },
-      NounsSeeder: {},
+      NounstersSeeder: {},
       NounsToken: {
         args: [
           args.noundersdao || deployer.address,
           expectedAuctionHouseProxyAddress,
           () => contracts.NounsDescriptor.instance?.address,
-          () => contracts.NounsSeeder.instance?.address,
+          () => contracts.NounstersSeeder.instance?.address,
           proxyRegistryAddress,
         ],
       },

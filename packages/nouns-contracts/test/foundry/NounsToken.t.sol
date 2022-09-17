@@ -4,13 +4,13 @@ pragma solidity ^0.8.6;
 import 'forge-std/Test.sol';
 import { NounsToken } from '../../contracts/NounsToken.sol';
 import { NounsDescriptor } from '../../contracts/NounsDescriptor.sol';
-import { NounsSeeder } from '../../contracts/NounsSeeder.sol';
+import { NounstersSeeder } from '../../contracts/NounstersSeeder.sol';
 import { IProxyRegistry } from '../../contracts/external/opensea/IProxyRegistry.sol';
 
 contract NounsTokenTest is Test {
     NounsToken nounsToken;
     NounsDescriptor descriptor;
-    NounsSeeder seeder;
+    NounstersSeeder seeder;
     IProxyRegistry proxyRegistry = IProxyRegistry(address(0));
     address noundersDAO = address(1);
     address minter = address(2);
@@ -18,7 +18,7 @@ contract NounsTokenTest is Test {
     function setUp() public {
         descriptor = new NounsDescriptor();
         _populateDescriptor();
-        seeder = new NounsSeeder();
+        seeder = new NounstersSeeder();
         nounsToken = new NounsToken(noundersDAO, minter, descriptor, seeder, proxyRegistry);
     }
 

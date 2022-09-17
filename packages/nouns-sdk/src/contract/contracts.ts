@@ -2,7 +2,7 @@ import {
   NounsTokenFactory,
   NounsAuctionHouseFactory,
   NounsDescriptorFactory,
-  NounsSeederFactory,
+  NounstersSeederFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';
 import type { Signer } from 'ethers';
@@ -36,8 +36,8 @@ export const getContractsForChainOrThrow = (
       addresses.nounsDescriptor,
       signerOrProvider as Signer | Provider,
     ),
-    nounsSeederContract: NounsSeederFactory.connect(
-      addresses.nounsSeeder,
+    NounstersSeederContract: NounstersSeederFactory.connect(
+      addresses.NounstersSeeder,
       signerOrProvider as Signer | Provider,
     ),
     nounsDaoContract: NounsDaoLogicV1Factory.connect(

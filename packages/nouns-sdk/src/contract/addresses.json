@@ -1,7 +1,7 @@
 {
   "1": {
     "nounsToken": "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03",
-    "nounsSeeder": "0xCC8a0FB5ab3C7132c1b2A0109142Fb112c4Ce515",
+    "NounstersSeeder": "0xCC8a0FB5ab3C7132c1b2A0109142Fb112c4Ce515",
     "nounsDescriptor": "0x0Cfdb3Ba1694c2bb2CFACB0339ad7b1Ae5932B63",
     "nftDescriptor": "0x0BBAd8c947210ab6284699605ce2a61780958264",
     "nounsAuctionHouse": "0xF15a943787014461d94da08aD4040f79Cd7c124e",
@@ -13,7 +13,7 @@
   },
   "4": {
     "nounsToken": "0x43F4c01b7D3E11914B79f77aD88ED91c82Ab04c0",
-    "nounsSeeder": "0x4C2265B55656d628DcCA20B63287074B5572E957",
+    "NounstersSeeder": "0x4C2265B55656d628DcCA20B63287074B5572E957",
     "nounsDescriptor": "0x1F952ad1Ba8d94F897F0585cDe846c5306B87fE9",
     "nftDescriptor": "0x07c6deCfB71416D77b1671050B2555c8176f5D1b",
     "nounsAuctionHouse": "0xEb2aD6e376916AeFEA082d58514795C99E6E1c8C",
@@ -25,7 +25,7 @@
   },
   "31337": {
     "nounsToken": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
-    "nounsSeeder": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "NounstersSeeder": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
     "nounsDescriptor": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
     "nftDescriptor": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
     "nounsAuctionHouse": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",

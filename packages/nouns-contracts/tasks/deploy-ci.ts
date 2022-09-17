@@ -24,7 +24,7 @@ task('deploy-ci', 'Deploy contracts (automated by CI)')
         contractAddresses: {
           NFTDescriptor: contracts.NFTDescriptor.address,
           NounsDescriptor: contracts.NounsDescriptor.address,
-          NounsSeeder: contracts.NounsSeeder.address,
+          NounstersSeeder: contracts.NounstersSeeder.address,
           NounsToken: contracts.NounsToken.address,
         },
         gitHub: {

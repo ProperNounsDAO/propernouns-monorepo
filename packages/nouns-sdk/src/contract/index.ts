@@ -5,11 +5,11 @@ export {
   NounsTokenABI,
   NounsAuctionHouseABI,
   NounsDescriptorABI,
-  NounsSeederABI,
+  NounstersSeederABI,
   NounsDAOABI,
   NounsTokenFactory,
   NounsAuctionHouseFactory,
   NounsDescriptorFactory,
-  NounsSeederFactory,
+  NounstersSeederFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';

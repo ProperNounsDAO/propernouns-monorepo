@@ -17,7 +17,7 @@ interface AppConfig {
   enableHistory: boolean;
 }
 
-type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Hardhat;
+type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.Hardhat | ChainId.Goerli;
 
 interface CacheBucket {
   name: string;
@@ -56,6 +56,13 @@ export const createNetworkWsUrl = (network: string): string => {
 };
 
 const app: Record<SupportedChains, AppConfig> = {
+  [ChainId.Goerli]: {
+    jsonRpcUri: createNetworkHttpUrl('goerli'),
+    wsRpcUri: createNetworkWsUrl('goerli'),
+    subgraphApiUri: 'https://api.studio.thegraph.com/query/30189/proper-nouns-subgraph/v0.0.6',
+    enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
+
+  },
   [ChainId.Rinkeby]: {
     jsonRpcUri: createNetworkHttpUrl('rinkeby'),
     wsRpcUri: createNetworkWsUrl('rinkeby'),
