@@ -53,11 +53,26 @@ const encode = async () => {
       moncount += 1;
     }
   }
+  console.table(monsterTypeStarts);
+  var monsterhashes = [];
+  for (var i = 0; i < monsterTypeStarts.length; i++) {
+    var hashes = new Int8Array(4);
+    var monsterhash = 0;
+    hashes[0] = monsterTypeStarts[i][0];
+    monsterhash = (monsterhash + hashes[0]);
+    hashes[1] = monsterTypeStarts[i][1];
+    monsterhash = ((monsterhash << 8) + hashes[1]);
+    hashes[2] = monsterTypeStarts[i][2];
+    monsterhash = ((monsterhash << 16) + hashes[2]);
+    hashes[3] = monsterTypeStarts[i][3];
+    monsterhash = ((monsterhash << 24) + hashes[3]);
+    monsterhashes[i] = monsterhash;
+  }
   await fs.writeFile(
     DESTINATION,
     JSON.stringify(
       {
-        monstertypes: monsterTypeStarts,
+        monstertypes: monsterhashes,
         bgcolors: ['d5d7e1', 'e1d7d5'],
         ...encoder.data,
       },

@@ -37,6 +37,7 @@ task('deploy-and-configure', 'Deploy and configure all contracts')
     await run('populate-descriptor', {
       nftDescriptor: contracts.NFTDescriptor.address,
       nounsDescriptor: contracts.NounsDescriptor.address,
+      nounstersSeeder: contracts.NounstersSeeder.address,
     });
 
     // Transfer ownership of all contract except for the auction house.

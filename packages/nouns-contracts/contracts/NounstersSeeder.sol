@@ -26,19 +26,19 @@ contract NounstersSeeder is INounstersSeeder {
      */
 
     uint256 internal monsterTypes;
-    mapping(uint16 => uint256) internal _bodyStart;
-    mapping(uint16 => uint256) internal _accessoryStart;
-    mapping(uint16 => uint256) internal _headStart;
-    mapping(uint16 => uint256) internal _glassesStart;
+    mapping(uint256 => uint256) internal _bodyStart;
+    mapping(uint256 => uint256) internal _accessoryStart;
+    mapping(uint256 => uint256) internal _headStart;
+    mapping(uint256 => uint256) internal _glassesStart;
 
-    function populateMonsterTypes(uint16[][] memory monsterStarts) external override {
+    function populateMonsterTypes(uint256[] memory monsterStarts) external override {
         monsterTypes = monsterStarts.length;
 
-        for (uint16 i = 0; i < monsterTypes; i++) {
-            _bodyStart[i] = uint256(monsterStarts[i][0]);
-            _accessoryStart[i] = uint256(monsterStarts[i][1]);
-            _headStart[i] = uint256(monsterStarts[i][2]);
-            _glassesStart[i] = uint256(monsterStarts[i][3]);
+        for (uint256 i = 0; i < monsterTypes; i++) {
+            _bodyStart[i] = monsterStarts[i];
+            _accessoryStart[i] = monsterStarts[i];
+            _headStart[i] = monsterStarts[i];
+            _glassesStart[i] = monsterStarts[i];
         }
     }
 

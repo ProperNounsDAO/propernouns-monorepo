@@ -14,6 +14,7 @@ task(
   await run('populate-descriptor', {
     nftDescriptor: contracts.NFTDescriptor.instance.address,
     nounsDescriptor: contracts.NounsDescriptor.instance.address,
+    nounstersSeeder: contracts.NounstersSeeder.instance.address,
   });
 
   await contracts.NounsAuctionHouse.instance
