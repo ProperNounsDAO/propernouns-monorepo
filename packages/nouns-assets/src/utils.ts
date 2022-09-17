@@ -1,7 +1,7 @@
 import { keccak256 as solidityKeccak256 } from '@ethersproject/solidity';
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { NounSeed, NounData } from './types';
-import { images, bgcolors } from './image-data.json';
+import { monstertypes, images, bgcolors } from './image-data.json';
 
 const { bodies, accessories, heads, glasses } = images;
 
@@ -26,12 +26,18 @@ export const getNounData = (seed: NounSeed): NounData => {
  * @param seed The Noun seed
  */
 export const getRandomNounSeed = (): NounSeed => {
+  const monstertype = Math.floor(Math.random() * monstertypes.length);
+  const bodieslength = monstertypes[monstertype][0][1] - monstertypes[monstertype][0][0];
+  const accessorieslength = monstertypes[monstertype][1][1] - monstertypes[monstertype][1][0];
+  const headslength = monstertypes[monstertype][2][1] - monstertypes[monstertype][2][0];
+  const glasseslength = monstertypes[monstertype][3][1] - monstertypes[monstertype][3][0];
+
   return {
     background: Math.floor(Math.random() * bgcolors.length),
-    body: Math.floor(Math.random() * bodies.length),
-    accessory: Math.floor(Math.random() * accessories.length),
-    head: Math.floor(Math.random() * heads.length),
-    glasses: Math.floor(Math.random() * glasses.length),
+    body: (Math.floor(Math.random() * bodieslength) + monstertypes[monstertype][0][0]),
+    accessory: (Math.floor(Math.random() * accessorieslength) + monstertypes[monstertype][1][0]),
+    head: (Math.floor(Math.random() * headslength) + monstertypes[monstertype][2][0]),
+    glasses: (Math.floor(Math.random() * glasseslength) + monstertypes[monstertype][3][0]),
   };
 };
 
@@ -74,11 +80,17 @@ export const getPseudorandomPart = (
  */
 export const getNounSeedFromBlockHash = (nounId: BigNumberish, blockHash: string): NounSeed => {
   const pseudorandomness = solidityKeccak256(['bytes32', 'uint256'], [blockHash, nounId]);
+  const monstertype = Math.floor(Math.random() * monstertypes.length);
+  const bodieslength = monstertypes[monstertype][0][1] - monstertypes[monstertype][0][0];
+  const accessorieslength = monstertypes[monstertype][1][1] - monstertypes[monstertype][1][0];
+  const headslength = monstertypes[monstertype][2][1] - monstertypes[monstertype][2][0];
+  const glasseslength = monstertypes[monstertype][3][1] - monstertypes[monstertype][3][0];
+
   return {
     background: getPseudorandomPart(pseudorandomness, bgcolors.length, 0),
-    body: getPseudorandomPart(pseudorandomness, bodies.length, 48),
-    accessory: getPseudorandomPart(pseudorandomness, accessories.length, 96),
-    head: getPseudorandomPart(pseudorandomness, heads.length, 144),
-    glasses: getPseudorandomPart(pseudorandomness, glasses.length, 192),
+    body: getPseudorandomPart(pseudorandomness, bodieslength, 48) + monstertypes[monstertype][0][0],
+    accessory: getPseudorandomPart(pseudorandomness, accessorieslength, 96) + monstertypes[monstertype][0][0],
+    head: getPseudorandomPart(pseudorandomness, headslength, 144) + monstertypes[monstertype][0][0],
+    glasses: getPseudorandomPart(pseudorandomness, glasseslength, 192) + monstertypes[monstertype][0][0],
   };
 };

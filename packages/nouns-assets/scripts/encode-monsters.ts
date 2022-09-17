@@ -31,12 +31,17 @@ const readPngImage = async (path: string): Promise<PngImage> => {
 
 const encode = async () => {
   const encoder = new PNGCollectionEncoder();
-  var monsterTypeStarts = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+  var monsterTypeStarts = [[[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [0, 0], [0, 0], [0, 0]]];
 
   const partfolders = ['1-bodies', '2-accessories', '3-heads', '4-glasses'];
   var folderpart = -1;
-  var lastmonstertype = -1;
   for (const folder of partfolders) {
+    var lastmonstertype = -1;
     folderpart += 1
     var moncount = 0
     const folderpath = path.join(__dirname, '../images', folder);
@@ -45,34 +50,22 @@ const encode = async () => {
       //Read the filename, grab the monster type from it
       const monstertype = parseInt(file.split("-")[0]);
       if (monstertype != lastmonstertype) {
-        monsterTypeStarts[lastmonstertype][folderpart] = moncount;
+        if (lastmonstertype != -1)
+          monsterTypeStarts[lastmonstertype][folderpart][1] = moncount - 1;
+        monsterTypeStarts[monstertype][folderpart][0] = moncount;
         lastmonstertype = monstertype;
       }
       const image = await readPngImage(path.join(folderpath, file));
       encoder.encodeImage(file.replace(/\.png$/, ''), image, folder.replace(/^\d-/, ''));
       moncount += 1;
     }
-  }
-  console.table(monsterTypeStarts);
-  var monsterhashes = [];
-  for (var i = 0; i < monsterTypeStarts.length; i++) {
-    var hashes = new Int8Array(4);
-    var monsterhash = 0;
-    hashes[0] = monsterTypeStarts[i][0];
-    monsterhash = (monsterhash + hashes[0]);
-    hashes[1] = monsterTypeStarts[i][1];
-    monsterhash = ((monsterhash << 8) + hashes[1]);
-    hashes[2] = monsterTypeStarts[i][2];
-    monsterhash = ((monsterhash << 16) + hashes[2]);
-    hashes[3] = monsterTypeStarts[i][3];
-    monsterhash = ((monsterhash << 24) + hashes[3]);
-    monsterhashes[i] = monsterhash;
+    monsterTypeStarts[lastmonstertype][folderpart][1] = moncount - 1;
   }
   await fs.writeFile(
     DESTINATION,
     JSON.stringify(
       {
-        monstertypes: monsterhashes,
+        monstertypes: monsterTypeStarts,
         bgcolors: ['d5d7e1', 'e1d7d5'],
         ...encoder.data,
       },

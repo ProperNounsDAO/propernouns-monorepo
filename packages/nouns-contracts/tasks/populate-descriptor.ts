@@ -55,18 +55,20 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
 
 
     await seederContract.populateMonsterTypes(monstertypes);
-    console.log("Verifying seeds...")
-    const seedReceipt = await seederContract.generateSeed(0, descriptorContract.address);
-    console.log(seedReceipt)
-    const seedTypes0 = await seederContract.grabTypeStarts(0);
-    const seedTypes1 = await seederContract.grabTypeStarts(1);
-    const seedTypes2 = await seederContract.grabTypeStarts(2);
-    const seedTypes3 = await seederContract.grabTypeStarts(3);
-    const seedTypes4 = await seederContract.grabTypeStarts(4);
-    //console.table([seedTypes0, seedTypes1, seedTypes2, seedTypes3, seedTypes4])
-    console.log(seedTypes0[0].toString(), seedTypes0[1].toString(), seedTypes0[2].toString(), seedTypes0[3].toString());
-    console.log(seedTypes1[0].toString(), seedTypes1[1].toString(), seedTypes1[2].toString(), seedTypes1[3].toString());
-    console.log(seedTypes2[0].toString(), seedTypes2[1].toString(), seedTypes2[2].toString(), seedTypes2[3].toString());
-    console.log(seedTypes3[0].toString(), seedTypes3[1].toString(), seedTypes3[2].toString(), seedTypes3[3].toString());
-    console.log(seedTypes4[0].toString(), seedTypes4[1].toString(), seedTypes4[2].toString(), seedTypes4[3].toString());
+
+    //console.log("Verifying counts...");
+    //for (var i = 0; i < 4; i++) {
+    //  const bodyReceipt = await seederContract.bodiesCount(i);
+    //  const accReceipt = await seederContract.accessoriesCount(i);
+    //  const headReceipt = await seederContract.headsCount(i);
+    //  const glassReceipt = await seederContract.glassesCount(i);
+    //  console.table([bodyReceipt, accReceipt, headReceipt, glassReceipt]);
+    //}
+    //console.log("Verifying seeds...");
+
+    //for (var i = 0; i < 50; i++) {
+    //  const seedReceipt = await seederContract.generateSeed(i, descriptorContract.address);
+    //  console.log("Seed successful")
+    //  console.log(i)
+    //}
   });
