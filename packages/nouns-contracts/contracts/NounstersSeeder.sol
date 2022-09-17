@@ -31,15 +31,28 @@ contract NounstersSeeder is INounstersSeeder {
     mapping(uint256 => uint256) internal _headStart;
     mapping(uint256 => uint256) internal _glassesStart;
 
-    function populateMonsterTypes(uint256[] memory monsterStarts) external override {
+    function populateMonsterTypes(uint256[][] calldata monsterStarts) external override {
         monsterTypes = monsterStarts.length;
 
         for (uint256 i = 0; i < monsterTypes; i++) {
-            _bodyStart[i] = uint256(uint8(monsterStarts[i]));
-            _accessoryStart[i] = uint256(uint8(monsterStarts[i]) >> 8);
-            _headStart[i] = uint256(uint8(monsterStarts[i]) >> 16);
-            _glassesStart[i] = uint256(uint8(monsterStarts[i]) >> 24);
+            _glassesStart[i] = monsterStarts[i][3];
+            _headStart[i] = monsterStarts[i][2];
+            _accessoryStart[i] = monsterStarts[i][1];
+            _bodyStart[i] = monsterStarts[i][0];
         }
+    }
+
+    function grabTypeStarts(uint256 typeId)
+        external
+        view
+        returns (
+            uint256 bodyStart,
+            uint256 accessoryStart,
+            uint256 headStart,
+            uint256 glassesStart
+        )
+    {
+        return (_bodyStart[typeId], _accessoryStart[typeId], _headStart[typeId], _glassesStart[typeId]);
     }
 
     // prettier-ignore
@@ -54,23 +67,23 @@ contract NounstersSeeder is INounstersSeeder {
         uint256 headCount = descriptor.headCount();
         uint256 glassesCount = descriptor.glassesCount();
 
-        uint16 monsterType = uint16(uint16(pseudorandomness) % monsterTypes);
+        uint256 _monsterType = uint256(uint16(pseudorandomness) % monsterTypes);
 
         return Seed({
             background: uint48(
                 (uint48(pseudorandomness >> 16) % backgroundCount)
             ),
             body: uint48(
-                ((uint48(pseudorandomness >> 64) % bodyCount) + _bodyStart[monsterType])
+                ((uint48(pseudorandomness >> 64) % bodyCount) + _bodyStart[_monsterType])
             ),
             accessory: uint48(
-                ((uint48(pseudorandomness >> 112) % accessoryCount) + _accessoryStart[monsterType])
+                ((uint48(pseudorandomness >> 112) % accessoryCount) + _accessoryStart[_monsterType])
             ),
             head: uint48(
-                ((uint48(pseudorandomness >> 160) % headCount) + _headStart[monsterType])
+                ((uint48(pseudorandomness >> 160) % headCount) + _headStart[_monsterType])
             ),
             glasses: uint48(
-                ((uint48(pseudorandomness >> 208) % glassesCount) + _glassesStart[monsterType])
+                ((uint48(pseudorandomness >> 208) % glassesCount) + _glassesStart[_monsterType])
             )
         });
     }

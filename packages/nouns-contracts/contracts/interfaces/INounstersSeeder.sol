@@ -30,5 +30,5 @@ interface INounstersSeeder {
 
     function generateSeed(uint256 nounId, INounsDescriptor descriptor) external view returns (Seed memory);
 
-    function populateMonsterTypes(uint256[] memory monsterStarts) external;
+    function populateMonsterTypes(uint256[][] calldata monsterStarts) external;
 }
