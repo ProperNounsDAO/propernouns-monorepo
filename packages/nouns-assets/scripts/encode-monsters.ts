@@ -35,7 +35,7 @@ const encode = async () => {
 
   const partfolders = ['1-bodies', '2-accessories', '3-heads', '4-glasses'];
   var folderpart = -1;
-  var lastmonstertype = 0;
+  var lastmonstertype = -1;
   for (const folder of partfolders) {
     folderpart += 1
     var moncount = 0
