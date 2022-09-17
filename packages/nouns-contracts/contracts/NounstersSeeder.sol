@@ -35,10 +35,10 @@ contract NounstersSeeder is INounstersSeeder {
         monsterTypes = monsterStarts.length;
 
         for (uint256 i = 0; i < monsterTypes; i++) {
-            _bodyStart[i] = monsterStarts[i];
-            _accessoryStart[i] = monsterStarts[i];
-            _headStart[i] = monsterStarts[i];
-            _glassesStart[i] = monsterStarts[i];
+            _bodyStart[i] = uint256(uint8(monsterStarts[i]));
+            _accessoryStart[i] = uint256(uint8(monsterStarts[i]) >> 8);
+            _headStart[i] = uint256(uint8(monsterStarts[i]) >> 16);
+            _glassesStart[i] = uint256(uint8(monsterStarts[i]) >> 24);
         }
     }
 
@@ -61,16 +61,16 @@ contract NounstersSeeder is INounstersSeeder {
                 (uint48(pseudorandomness >> 16) % backgroundCount)
             ),
             body: uint48(
-                (uint48(pseudorandomness >> 64) % bodyCount) + _bodyStart[monsterType]
+                ((uint48(pseudorandomness >> 64) % bodyCount) + _bodyStart[monsterType])
             ),
             accessory: uint48(
-                (uint48(pseudorandomness >> 112) % accessoryCount) + _accessoryStart[monsterType]
+                ((uint48(pseudorandomness >> 112) % accessoryCount) + _accessoryStart[monsterType])
             ),
             head: uint48(
-                (uint48(pseudorandomness >> 160) % headCount) + _headStart[monsterType]
+                ((uint48(pseudorandomness >> 160) % headCount) + _headStart[monsterType])
             ),
             glasses: uint48(
-                (uint48(pseudorandomness >> 208) % glassesCount) + _glassesStart[monsterType]
+                ((uint48(pseudorandomness >> 208) % glassesCount) + _glassesStart[monsterType])
             )
         });
     }
