@@ -87,6 +87,9 @@ const externalAddresses: Record<SupportedChains, ExternalContractAddresses> = {
   [ChainId.Rinkeby]: {
     lidoToken: '0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD',
   },
+  [ChainId.Goerli]: {
+    lidoToken: '0x2DD6530F136D2B56330792D46aF959D9EA62E276',
+  },
   [ChainId.Mainnet]: {
     lidoToken: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
   },
