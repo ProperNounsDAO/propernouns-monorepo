@@ -2,7 +2,7 @@ import { TASK_COMPILE, TASK_NODE } from 'hardhat/builtin-tasks/task-names';
 import { task } from 'hardhat/config';
 
 task(
-  'run-local',
+  'run-local-and-do-stuff',
   'Start a hardhat node, deploy contracts, and execute setup transactions',
 ).setAction(async (_, { ethers, run }) => {
   await run(TASK_COMPILE);
@@ -22,6 +22,7 @@ task(
     .unpause({
       gasLimit: 1_000_000,
     });
+  console.log("Unpaused auction!");
 
   await run('create-proposal', {
     nounsDaoProxy: contracts.NounsDAOProxy.instance.address,

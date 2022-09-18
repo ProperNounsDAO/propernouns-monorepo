@@ -53,22 +53,15 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
 
     console.log('Descriptor populated with palettes and parts.');
 
-
     await seederContract.populateMonsterTypes(monstertypes);
 
     //console.log("Verifying counts...");
-    //for (var i = 0; i < 4; i++) {
-    //  const bodyReceipt = await seederContract.bodiesCount(i);
-    //  const accReceipt = await seederContract.accessoriesCount(i);
-    //  const headReceipt = await seederContract.headsCount(i);
-    //  const glassReceipt = await seederContract.glassesCount(i);
-    //  console.table([bodyReceipt, accReceipt, headReceipt, glassReceipt]);
-    //}
+    for (var i = 0; i < 5; i++) {
+      const bodyReceipt = await seederContract.bodiesCount(i);
+      const accReceipt = await seederContract.accessoriesCount(i);
+      const headReceipt = await seederContract.headsCount(i);
+      const glassReceipt = await seederContract.glassesCount(i);
+      console.table([bodyReceipt, accReceipt, headReceipt, glassReceipt]);
+    }
     //console.log("Verifying seeds...");
-
-    //for (var i = 0; i < 50; i++) {
-    //  const seedReceipt = await seederContract.generateSeed(i, descriptorContract.address);
-    //  console.log("Seed successful")
-    //  console.log(i)
-    //}
   });

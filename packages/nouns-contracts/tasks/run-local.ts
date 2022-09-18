@@ -17,15 +17,31 @@ task(
     nounstersSeeder: contracts.NounstersSeeder.instance.address,
   });
 
-  await contracts.NounsAuctionHouse.instance
-    .attach(contracts.NounsAuctionHouseProxy.instance.address)
-    .unpause({
-      gasLimit: 1_000_000,
-    });
+  //await run('create-proposal', {
+  //  nounsDaoProxy: contracts.NounsDAOProxy.instance.address,
+  //});
 
-  await run('create-proposal', {
-    nounsDaoProxy: contracts.NounsDAOProxy.instance.address,
+
+  // Transfer ownership of all contract except for the auction house.
+  // We must maintain ownership of the auction house to kick off the first auction.
+  const executorAddress = contracts.NounsDAOExecutor.address;
+  await contracts.NounsDescriptor.instance.transferOwnership(executorAddress);
+  await contracts.NounsToken.instance.transferOwnership(executorAddress);
+  await contracts.NounsAuctionHouseProxyAdmin.instance.transferOwnership(executorAddress);
+  console.log(
+    'Transferred ownership of the descriptor, token, and proxy admin contracts to the executor.',
+  );
+
+  const auctionHouse = contracts.NounsAuctionHouse.instance.attach(
+    contracts.NounsAuctionHouseProxy.address,
+  );
+  await auctionHouse.unpause({
+    gasLimit: 1_000_000,
   });
+  await auctionHouse.transferOwnership(executorAddress);
+  console.log(
+    'Started the first auction and transferred ownership of the auction house to the executor.',
+  );
 
   const { chainId } = await ethers.provider.getNetwork();
 
