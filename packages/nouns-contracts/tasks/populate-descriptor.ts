@@ -6,19 +6,19 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
   .addOptionalParam(
     'nftDescriptor',
     'The `NFTDescriptor` contract address',
-    '0x07c6deCfB71416D77b1671050B2555c8176f5D1b',
+    '0xFeD5B842271D943c8820dFf123C43266f349e833',
     types.string,
   )
   .addOptionalParam(
     'nounsDescriptor',
     'The `NounsDescriptor` contract address',
-    '0x1F952ad1Ba8d94F897F0585cDe846c5306B87fE9',
+    '0xD99b43332994F755072d5cdAB87992aF8423DeC0',
     types.string,
   )
   .addOptionalParam(
     'nounstersSeeder',
     'The `NounstersSeeder` contract address',
-    '0x1F952ad1Ba8d94F897F0585cDe846c5306B87fE9',
+    '0x0E760D9e188E91C80418e7f5F3adD2F857EC7477',
     types.string,
   )
   .setAction(async ({ nftDescriptor, nounsDescriptor, nounstersSeeder }, { ethers }) => {
@@ -34,11 +34,16 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
     const { monstertypes, bgcolors, palette, images } = ImageData;
     const { bodies, accessories, heads, glasses } = images;
 
+    console.log([bodies.length, accessories.length, heads.length, glasses.length]);
     // Chunk head and accessory population due to high gas usage
     await descriptorContract.addManyBackgrounds(bgcolors);
     await descriptorContract.addManyColorsToPalette(0, palette);
-    await descriptorContract.addManyBodies(bodies.map(({ data }) => data));
 
+    //await descriptorContract.addManyBodies(bodies.map(({ data }) => data));
+    const bodyChunk = chunkArray(bodies, 10);
+    for (const chunk of bodyChunk) {
+      await descriptorContract.addManyBodies(chunk.map(({ data }) => data));
+    }
     const accessoryChunk = chunkArray(accessories, 10);
     for (const chunk of accessoryChunk) {
       await descriptorContract.addManyAccessories(chunk.map(({ data }) => data));
@@ -49,19 +54,12 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
       await descriptorContract.addManyHeads(chunk.map(({ data }) => data));
     }
 
-    await descriptorContract.addManyGlasses(glasses.map(({ data }) => data));
-
-    console.log('Descriptor populated with palettes and parts.');
+    //await descriptorContract.addManyGlasses(glasses.map(({ data }) => data));
+    const glassesChunk = chunkArray(glasses, 10);
+    for (const chunk of glassesChunk) {
+      await descriptorContract.addManyGlasses(chunk.map(({ data }) => data));
+    }
 
     await seederContract.populateMonsterTypes(monstertypes);
-
-    //console.log("Verifying counts...");
-    for (var i = 0; i < 5; i++) {
-      const bodyReceipt = await seederContract.bodiesCount(i);
-      const accReceipt = await seederContract.accessoriesCount(i);
-      const headReceipt = await seederContract.headsCount(i);
-      const glassReceipt = await seederContract.glassesCount(i);
-      console.table([bodyReceipt, accReceipt, headReceipt, glassReceipt]);
-    }
-    //console.log("Verifying seeds...");
+    console.log('Descriptor populated with palettes and parts.');
   });
